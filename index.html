@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El Precio del Tiempo: experiencia digital interactiva de un ensayo argumentativo sobre la paradoja de una sociedad que nunca tiene tiempo." />
+  <title>El Precio del Tiempo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://unpkg.com/lucide@0.460.0" defer></script>
+</head>
+<body>
+  <!-- Indicador de progreso -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true">
+    <div class="progress-bar__fill" id="progressFill"></div>
+  </div>
+
+  <!-- Navegación -->
+  <header class="site-header" id="siteHeader">
+    <a href="#inicio" class="site-logo" aria-label="Ir al inicio">
+      <span class="site-logo__mark">EPT</span>
+      <span class="site-logo__text">El Precio del Tiempo</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="siteNav" aria-label="Capítulos">
+      <ol class="site-nav__list">
+        <li><a href="#inicio" data-chapter="1">01 · Inicio</a></li>
+        <li><a href="#pregunta" data-chapter="2">02 · La pregunta</a></li>
+        <li><a href="#tiempo-perdido" data-chapter="3">03 · Tiempo perdido</a></li>
+        <li><a href="#sin-direccion" data-chapter="4">04 · Sin dirección</a></li>
+        <li><a href="#otra-cara" data-chapter="5">05 · La otra cara</a></li>
+        <li><a href="#conclusion" data-chapter="6">06 · Conclusión</a></li>
+        <li><a href="#fuentes" data-chapter="7">07 · Fuentes</a></li>
+        <li><a href="#nucleo" data-chapter="8">08 · Núcleo</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== CAPÍTULO 01 — PORTADA ========== -->
+    <section class="chapter chapter--hero" id="inicio" data-chapter="1" aria-label="Capítulo 1: El comienzo">
+      <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Ensayo argumentativo · Experiencia digital</p>
+        <h1 class="hero-title">
+          <span class="hero-title__line">El precio</span>
+          <span class="hero-title__line hero-title__line--accent">del tiempo</span>
+        </h1>
+        <p class="hero-subtitle">La paradoja de una sociedad que nunca tiene tiempo.</p>
+
+        <div class="hourglass" id="hourglass" aria-hidden="true">
+          <svg viewBox="0 0 120 180" class="hourglass__svg" role="img" aria-label="Reloj de arena">
+            <defs>
+              <linearGradient id="sandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#B89A62" />
+                <stop offset="100%" stop-color="#8a7244" />
+              </linearGradient>
+              <clipPath id="topBulb">
+                <path d="M30 28 L90 28 L60 88 Z" />
+              </clipPath>
+              <clipPath id="bottomBulb">
+                <path d="M30 152 L90 152 L60 92 Z" />
+              </clipPath>
+            </defs>
+            <!-- Marco -->
+            <rect x="22" y="18" width="76" height="8" rx="1" fill="#B89A62" opacity="0.85" />
+            <rect x="22" y="154" width="76" height="8" rx="1" fill="#B89A62" opacity="0.85" />
+            <path d="M30 26 L90 26 L60 90 L90 154 L30 154 L60 90 Z" fill="none" stroke="#B89A62" stroke-width="1.5" opacity="0.7" />
+            <!-- Arena superior -->
+            <g clip-path="url(#topBulb)">
+              <rect class="hourglass__sand-top" x="30" y="48" width="60" height="40" fill="url(#sandGrad)" />
+            </g>
+            <!-- Arena inferior -->
+            <g clip-path="url(#bottomBulb)">
+              <rect class="hourglass__sand-bottom" x="30" y="140" width="60" height="12" fill="url(#sandGrad)" />
+            </g>
+            <!-- Hilo de arena -->
+            <line class="hourglass__stream" x1="60" y1="88" x2="60" y2="110" stroke="#B89A62" stroke-width="1.2" opacity="0.9" />
+          </svg>
+        </div>
+
+        <blockquote class="hero-quote">
+          <p>Todos tenemos las mismas veinticuatro horas. Sin embargo, no todos decidimos qué hacer con ellas.</p>
+        </blockquote>
+
+        <dl class="hero-meta" aria-label="Datos del trabajo">
+          <div class="hero-meta__item">
+            <dt>Autor</dt>
+            <dd>Nicolás Alexander Cabezas Monroy</dd>
+          </div>
+          <div class="hero-meta__item">
+            <dt>Grado</dt>
+            <dd>9-2</dd>
+          </div>
+          <div class="hero-meta__item">
+            <dt>Profesor</dt>
+            <dd>Layonel Rozo</dd>
+          </div>
+        </dl>
+
+        <a href="#pregunta" class="btn-start" id="btnStart">
+          <span>Comenzar experiencia</span>
+          <i data-lucide="arrow-down"></i>
+        </a>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Desplázate</span>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 02 — LA PREGUNTA ========== -->
+    <section class="chapter" id="pregunta" data-chapter="2" aria-label="Capítulo 2: La pregunta">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 02</span>
+          <h2 class="chapter-title">La pregunta</h2>
+        </header>
+
+        <div class="question-block reveal">
+          <p class="question-block__label">Pregunta central</p>
+          <h3 class="question-block__text">¿Realmente nos falta tiempo o hemos aprendido a desperdiciarlo?</h3>
+        </div>
+
+        <div class="prose reveal">
+          <p>El tiempo es el recurso más equitativo y, a la vez, el más desigualmente aprovechado. Cada persona dispone de las mismas veinticuatro horas; sin embargo, la sensación de escasez se ha convertido en una queja cotidiana. Hablar de “falta de tiempo” se ha vuelto tan habitual que rara vez nos detenemos a examinar si esa percepción describe un hecho objetivo o una forma de relacionarnos con nuestras prioridades.</p>
+          <p>En la sociedad contemporánea, las distracciones no son excepciones: forman parte del entorno. Las notificaciones, las redes sociales, el entretenimiento digital y la multiplicación de estímulos compiten constantemente por nuestra atención. El problema no es solo cuántas horas tenemos, sino cuánta atención disponemos para usarlas con intención.</p>
+          <p>La tecnología prometió liberarnos de tareas repetitivas y facilitarnos la vida. En muchos casos lo logró. Pero también introdujo una paradoja: cuanto más accesibles se vuelven las herramientas, más tentaciones aparecen para aplazar lo importante. Estar ocupado no es lo mismo que ser productivo. Una agenda llena de actividades puede ocultar la ausencia de dirección; un día “productivo” en apariencia puede estar compuesto de interrupciones, respuestas urgentes y poco avance real.</p>
+        </div>
+
+        <aside class="thesis-panel reveal" aria-labelledby="thesis-title">
+          <p class="thesis-panel__label" id="thesis-title">Tesis central</p>
+          <p class="thesis-panel__text">La sociedad actual enfrenta una contradicción: aunque dispone de numerosas herramientas para facilitar sus actividades y aprovechar el tiempo, muchas personas terminan perdiendo horas en distracciones, procrastinación y actividades sin propósito definido. Esta situación demuestra que la productividad no depende únicamente de disponer de tiempo, sino de aprender a administrarlo, establecer prioridades y reconocer la diferencia entre descansar y postergar nuestras responsabilidades.</p>
+        </aside>
+
+        <div class="harari-note reveal">
+          <div class="harari-note__icon" aria-hidden="true"><i data-lucide="book-open"></i></div>
+          <div>
+            <p class="harari-note__label">Conexión con Harari</p>
+            <p>En <cite>21 lecciones para el siglo XXI</cite>, Yuval Noah Harari analiza cómo la tecnología, el trabajo y la educación están transformando la manera en que entendemos el sentido de nuestras vidas. Una idea recurrente en su obra es que, en un mundo saturado de información y cambio constante, la capacidad de mantener la atención y de comprender qué ocurre dentro de nosotros se vuelve decisiva. Esta perspectiva no se usa aquí como cita decorativa, sino como marco: el problema del tiempo no es solo técnico; también es filosófico y psicológico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 03 — EL TIEMPO QUE PERDEMOS ========== -->
+    <section class="chapter" id="tiempo-perdido" data-chapter="3" aria-label="Capítulo 3: El tiempo que perdemos">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 03</span>
+          <h2 class="chapter-title">El tiempo que perdemos</h2>
+          <p class="chapter-lead">Dos fuerzas que fragmentan la atención: la distracción constante y la procrastinación.</p>
+        </header>
+
+        <!-- Argumento 1 -->
+        <article class="argument reveal" id="arg-distraccion">
+          <div class="argument__meta">
+            <span class="argument__tag">Argumento 01</span>
+            <h3 class="argument__title">La distracción constante</h3>
+          </div>
+
+          <div class="argument__grid">
+            <div class="argument__text prose">
+              <p>Las redes sociales, las notificaciones y el entretenimiento digital no solo ocupan minutos: fragmentan la atención. Cada interrupción obliga a la mente a cambiar de contexto, y ese cambio tiene un costo. Aunque una notificación dure segundos, el regreso a la concentración profunda puede tomar mucho más.</p>
+              <p>El resultado es una jornada cortada en pedazos: miramos el teléfono “solo un momento”, abrimos una aplicación “para revisar algo” y terminamos lejos de la tarea que habíamos empezado. No siempre se trata de falta de voluntad; el entorno digital está diseñado para capturar la atención de forma persistente.</p>
+              <p>Esta fragmentación produce una sensación engañosa: creemos haber estado activos todo el día, pero al cerrar la noche nos cuesta identificar qué logramos realmente. La ocupación constante puede disfrazar la ausencia de avance significativo.</p>
+            </div>
+            <figure class="argument__figure">
+              <img src="assets/images/digital-distraction.jpg" alt="Persona trabajando frente a una computadora portátil en un entorno digital" loading="lazy" width="1200" height="800" />
+              <figcaption>La tecnología facilita el trabajo, pero también multiplica los puntos de interrupción.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Visualización verificable -->
+        <div class="data-viz reveal" aria-labelledby="viz-title">
+          <h3 class="data-viz__title" id="viz-title">Una mirada a datos verificables</h3>
+          <p class="data-viz__intro">Estas cifras no “demuestran” por sí solas la tesis, pero sí ilustran la magnitud del tiempo que muchas personas dedican a plataformas digitales. Cada dato incluye su fuente.</p>
+
+          <div class="stat-grid">
+            <article class="stat-card">
+              <p class="stat-card__value"><span class="stat-num" data-target="2">0</span>h <span class="stat-num" data-target="23">0</span>m</p>
+              <p class="stat-card__label">Tiempo diario promedio en redes sociales del usuario típico</p>
+              <p class="stat-card__source">DataReportal / GWI · Digital 2024</p>
+              <p class="stat-card__note">Muestra que una porción considerable del día online se destina a plataformas sociales, lo que ayuda a comprender por qué la sensación de “falta de tiempo” puede coexistir con horas de uso digital.</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-card__value"><span class="stat-num" data-target="4">0</span>h <span class="stat-num" data-target="30">0</span>m</p>
+              <p class="stat-card__label">Tiempo promedio diario online de adultos en el Reino Unido</p>
+              <p class="stat-card__source">Ofcom · Online Nation 2025</p>
+              <p class="stat-card__note">Indica cuán central es la vida digital en la rutina cotidiana; dentro de ese tiempo, plataformas como YouTube o Facebook concentran una parte relevante de la atención diaria.</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-card__value"><span class="stat-num" data-target="51">0</span> min</p>
+              <p class="stat-card__label">Promedio diario en YouTube entre adultos usuarios en el Reino Unido</p>
+              <p class="stat-card__source">Ofcom / Ipsos iris · Online Nation 2025</p>
+              <p class="stat-card__note">Ejemplifica cómo una sola plataforma puede absorber casi una hora diaria, sin contar el uso de otras redes o aplicaciones.</p>
+            </article>
+          </div>
+
+          <div class="bar-chart" role="img" aria-label="Comparación de tiempo promedio diario en plataformas según Ofcom 2025">
+            <p class="bar-chart__title">Tiempo promedio diario por plataforma (Reino Unido, adultos usuarios · Ofcom 2025)</p>
+            <div class="bar-row">
+              <span class="bar-row__label">YouTube</span>
+              <div class="bar-row__track"><div class="bar-row__fill" data-width="100" style="--w:100%"></div></div>
+              <span class="bar-row__value">51 min</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">Facebook / Messenger</span>
+              <div class="bar-row__track"><div class="bar-row__fill" data-width="84" style="--w:84%"></div></div>
+              <span class="bar-row__value">43 min</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">TikTok</span>
+              <div class="bar-row__track"><div class="bar-row__fill" data-width="55" style="--w:55%"></div></div>
+              <span class="bar-row__value">28 min</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-row__label">Instagram</span>
+              <div class="bar-row__track"><div class="bar-row__fill" data-width="39" style="--w:39%"></div></div>
+              <span class="bar-row__value">20 min</span>
+            </div>
+            <p class="bar-chart__caption">Fuente: Ofcom, <cite>Online Nation 2025</cite>. Los valores corresponden a promedios diarios entre usuarios adultos en el Reino Unido y no deben generalizarse automáticamente a todos los países.</p>
+          </div>
+        </div>
+
+        <!-- Argumento 2 -->
+        <article class="argument reveal" id="arg-procrastinacion">
+          <div class="argument__meta">
+            <span class="argument__tag">Argumento 02</span>
+            <h3 class="argument__title">La procrastinación</h3>
+          </div>
+
+          <div class="argument__grid argument__grid--reverse">
+            <div class="argument__text prose">
+              <p>Posponer no es simplemente “dejar para después”. La investigación psicológica describe la procrastinación como un retraso voluntario e innecesario de tareas importantes, incluso cuando la persona sabe que esa demora puede traerle consecuencias negativas. Según el enfoque contemporáneo recogido por la American Psychological Association, muchas veces no evitamos la tarea en sí, sino las emociones desagradables asociadas a ella: ansiedad, aburrimiento o frustración.</p>
+              <p>Cuando se convierte en un patrón, la procrastinación acumula pendientes, reduce la calidad del trabajo realizado a última hora y genera una deuda emocional: culpa, estrés y la sensación de ir siempre a la zaga. Fuschia Sirois, investigadora citada por la APA, ha subrayado que este hábito no se explica solo por “pereza” o mala organización: está ligado a la regulación emocional y puede afectar el bienestar.</p>
+              <p>Así, el tiempo no solo se pierde en minutos de demora; también se deteriora la capacidad de cumplir objetivos y de aprovechar oportunidades que exigen constancia.</p>
+            </div>
+            <figure class="argument__figure">
+              <img src="assets/images/empty-desk.jpg" alt="Cuaderno abierto con lista de tareas sobre un escritorio" loading="lazy" width="1200" height="800" />
+              <figcaption>Las tareas aplazadas no desaparecen: se acumulan y aumentan la presión.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Pregunta interactiva -->
+        <div class="reflect-block reveal" data-reflect="1">
+          <p class="reflect-block__label">Reflexión interactiva</p>
+          <h3 class="reflect-block__question">Cuando sientes que “no tienes tiempo”, ¿qué suele ocurrir con más frecuencia?</h3>
+          <div class="reflect-options" role="group" aria-label="Opciones de reflexión">
+            <button type="button" class="reflect-option" data-response="a">
+              <span class="reflect-option__key">A</span>
+              <span>Tengo demasiadas obligaciones reales y poco margen en el día.</span>
+            </button>
+            <button type="button" class="reflect-option" data-response="b">
+              <span class="reflect-option__key">B</span>
+              <span>Pierdo tiempo en pantallas, redes o distracciones sin darme cuenta.</span>
+            </button>
+            <button type="button" class="reflect-option" data-response="c">
+              <span class="reflect-option__key">C</span>
+              <span>Sé qué debo hacer, pero lo postergo aunque me genere estrés.</span>
+            </button>
+            <button type="button" class="reflect-option" data-response="d">
+              <span class="reflect-option__key">D</span>
+              <span>Una mezcla de las anteriores, según el momento.</span>
+            </button>
+          </div>
+          <div class="reflect-feedback" hidden>
+            <p data-for="a">Reconocer obligaciones reales es importante. Aun así, conviene distinguir lo urgente de lo importante: a veces la agenda llena también incluye compromisos que podrían renegociarse o priorizarse mejor.</p>
+            <p data-for="b">Esa percepción coincide con uno de los argumentos de este ensayo. Pequeños intervalos de distracción, repetidos, pueden sumar horas y fragmentar la concentración.</p>
+            <p data-for="c">Esa descripción se acerca a lo que la psicología llama procrastinación: no es solo falta de tiempo, sino una dificultad para enfrentar la emoción asociada a la tarea.</p>
+            <p data-for="d">Una respuesta equilibrada. El problema del tiempo rara vez tiene una sola causa; por eso este ensayo combina análisis de distracción, procrastinación y falta de dirección.</p>
+          </div>
+          <p class="reflect-note">Esta pregunta es complementaria. Puedes continuar la lectura sin responderla.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 04 — UNA VIDA SIN DIRECCIÓN ========== -->
+    <section class="chapter" id="sin-direccion" data-chapter="4" aria-label="Capítulo 4: Una vida sin dirección">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 04</span>
+          <h2 class="chapter-title">Una vida sin dirección</h2>
+          <p class="chapter-lead">Sin prioridades claras, incluso el tiempo “libre” se dispersa.</p>
+        </header>
+
+        <article class="argument reveal">
+          <div class="argument__meta">
+            <span class="argument__tag">Argumento 03</span>
+            <h3 class="argument__title">La ausencia de objetivos y prioridades</h3>
+          </div>
+          <div class="argument__grid">
+            <div class="argument__text prose">
+              <p>Administrar el tiempo exige saber hacia dónde se quiere ir. Cuando faltan metas claras —aunque sean modestas—, cualquier estímulo puede ocupar el espacio disponible. Sin prioridades, el día se llena de lo inmediato: lo que aparece en la pantalla, lo que pide atención ajena, lo que resulta más fácil o más entretenido en el momento.</p>
+              <p>Tener objetivos no significa vivir bajo presión constante. Significa disponer de un criterio para decidir. Una persona que sabe qué le importa puede elegir descansar sin sentirse culpable, porque el descanso forma parte de un plan. En cambio, quien no define prioridades suele terminar el día agotado y, al mismo tiempo, insatisfecho: hizo muchas cosas, pero ninguna con claridad de propósito.</p>
+              <p>Harari, al reflexionar sobre educación y cambio en el siglo XXI, insiste en la necesidad de aprender a adaptarse y a comprender el mundo en transformación. En esa línea, establecer prioridades personales no es un lujo: es una forma de no dejarse arrastrar por la corriente de estímulos y demandas externas.</p>
+            </div>
+            <figure class="argument__figure">
+              <img src="assets/images/planning.jpg" alt="Escritorio con documentos y planificación de trabajo" loading="lazy" width="1200" height="800" />
+              <figcaption>Definir prioridades no elimina la incertidumbre, pero orienta las decisiones diarias.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="argument reveal">
+          <div class="argument__meta">
+            <span class="argument__tag">Argumento 04</span>
+            <h3 class="argument__title">La paradoja de la productividad moderna</h3>
+          </div>
+          <div class="argument__grid">
+            <div class="argument__text prose">
+              <p>Nunca habíamos tenido tantas herramientas para organizar tareas, comunicarnos al instante y acceder al conocimiento. Aplicaciones de calendario, recordatorios, plataformas de estudio y dispositivos portátiles prometen eficiencia. Sin embargo, esas mismas herramientas pueden convertirse en fuentes adicionales de distracción: más canales, más mensajes, más opciones.</p>
+              <p>La paradoja es clara: la tecnología puede ahorrar tiempo en lo operativo y, al mismo tiempo, multiplicar las oportunidades de perderlo. Un teléfono que permite estudiar en cualquier lugar también permite escapar de ese estudio con un toque. Un entorno laboral digital que acelera la coordinación también acelera las interrupciones.</p>
+              <p>Por eso, la productividad no puede reducirse a “tener más herramientas”. Depende de la capacidad de usarlas con criterio, de proteger espacios de concentración y de distinguir entre actividad útil y actividad que solo simula avance.</p>
+            </div>
+            <figure class="argument__figure">
+              <img src="assets/images/watch-time.jpg" alt="Reloj inteligente en la muñeca, símbolo del tiempo medido por la tecnología" loading="lazy" width="1200" height="800" />
+              <figcaption>Más dispositivos para medir el tiempo no garantizan, por sí solos, un mejor uso de él.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Contraste visual de tipos de tiempo -->
+        <div class="time-contrast reveal" aria-labelledby="contrast-title">
+          <h3 class="time-contrast__title" id="contrast-title">Cuatro formas de vivir el mismo día</h3>
+          <p class="time-contrast__intro">No se trata de jerarquizar el valor moral de cada momento, sino de reconocer que no todo uso del tiempo produce el mismo resultado. La clave está en la conciencia con la que elegimos.</p>
+          <div class="time-contrast__grid">
+            <article class="time-type" data-type="ocupado">
+              <div class="time-type__icon" aria-hidden="true"><i data-lucide="activity"></i></div>
+              <h4>Tiempo ocupado</h4>
+              <p>Estar en movimiento constante: responder, desplazarse, cumplir lo urgente. Puede ser necesario, pero no siempre genera progreso profundo.</p>
+            </article>
+            <article class="time-type" data-type="productivo">
+              <div class="time-type__icon" aria-hidden="true"><i data-lucide="target"></i></div>
+              <h4>Tiempo productivo</h4>
+              <p>Atención sostenida hacia una meta clara. Menos ruido, más avance. No exige agotamiento: exige foco e intención.</p>
+            </article>
+            <article class="time-type" data-type="descanso">
+              <div class="time-type__icon" aria-hidden="true"><i data-lucide="moon"></i></div>
+              <h4>Tiempo de descanso</h4>
+              <p>Recuperación legítima: dormir, conversar, caminar, disfrutar. No es pérdida si restaura energía y equilibrio.</p>
+            </article>
+            <article class="time-type" data-type="distraccion">
+              <div class="time-type__icon" aria-hidden="true"><i data-lucide="smartphone"></i></div>
+              <h4>Tiempo en distracciones</h4>
+              <p>Uso automático o impulsivo de la atención, a menudo sin decisión consciente. El problema no es el placer, sino la pérdida de control.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="harari-note reveal">
+          <div class="harari-note__icon" aria-hidden="true"><i data-lucide="cpu"></i></div>
+          <div>
+            <p class="harari-note__label">Tecnología y trabajo según el marco de Harari</p>
+            <p>Harari examina cómo la automatización y la inteligencia artificial pueden transformar el empleo y exigir nuevas habilidades. Esa reflexión refuerza una idea de este ensayo: disponer de herramientas avanzadas no garantiza una vida mejor administrada. Sin capacidad de atención, aprendizaje continuo y criterio personal, la tecnología puede acelerarnos sin orientarnos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 05 — LA OTRA CARA ========== -->
+    <section class="chapter chapter--alt" id="otra-cara" data-chapter="5" aria-label="Capítulo 5: La otra cara del tiempo">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 05</span>
+          <h2 class="chapter-title">La otra cara del tiempo</h2>
+          <p class="chapter-lead">Contraargumento: ¿debemos ser productivos todo el tiempo?</p>
+        </header>
+
+        <div class="contra-hero reveal">
+          <figure class="contra-hero__figure">
+            <img src="assets/images/rest-pause.jpg" alt="Persona en un momento de pausa y descanso al aire libre" loading="lazy" width="1200" height="800" />
+          </figure>
+          <div class="contra-hero__text">
+            <h3>Descansar no es fallar</h3>
+            <p class="prose">Sería un error concluir que toda hora no productiva es una hora desperdiciada. Descansar, divertirse, conversar sin agenda y disfrutar de la vida son necesidades legítimas. El cuerpo y la mente requieren pausas; la creatividad y el aprendizaje también se benefician de momentos sin presión.</p>
+          </div>
+        </div>
+
+        <div class="prose reveal">
+          <p>El extremo de la “productividad total” puede volverse tan dañino como la procrastinación crónica. Convertir cada minuto en una meta medible empobrece la experiencia humana y puede generar ansiedad, culpa y agotamiento. Una vida digna no se reduce a una lista de tareas completadas.</p>
+          <p>El problema, entonces, no es el descanso: es la pérdida de control sobre nuestras prioridades y decisiones. Hay una diferencia sustancial entre elegir ver una serie porque necesitamos desconectar y abrir automáticamente una aplicación cada vez que aparece una emoción incómoda. En el primer caso hay intención; en el segundo, a menudo hay escape.</p>
+          <p>Pensar críticamente implica sostener esta tensión: sí, perdemos tiempo en distracciones y aplazamientos; y sí, también necesitamos ocio genuino. La solución no es demonizar el placer ni glorificar el rendimiento extremo, sino recuperar la capacidad de decidir con conciencia.</p>
+        </div>
+
+        <div class="balance-panel reveal">
+          <div class="balance-panel__col">
+            <h4>Lo que este ensayo no defiende</h4>
+            <ul>
+              <li>Vivir bajo productividad extrema.</li>
+              <li>Tratar el descanso como “pérdida”.</li>
+              <li>Culpar a las personas por necesitar ocio.</li>
+            </ul>
+          </div>
+          <div class="balance-panel__col">
+            <h4>Lo que sí sostiene</h4>
+            <ul>
+              <li>Distinguir descanso elegido de postergación.</li>
+              <li>Proteger la atención como recurso limitado.</li>
+              <li>Usar la tecnología con criterio, no por inercia.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="harari-note reveal">
+          <div class="harari-note__icon" aria-hidden="true"><i data-lucide="brain"></i></div>
+          <div>
+            <p class="harari-note__label">Meditación y atención</p>
+            <p>En la última parte de <cite>21 lecciones para el siglo XXI</cite>, Harari dedica una reflexión a la meditación y a la importancia de observar la propia mente. Sin presentar aquí citas textuales de una edición concreta, sí cabe subrayar el sentido general de esa propuesta: en un siglo saturado de estímulos, conocernos y entrenar la atención puede ser tan relevante como acumular información. Ese llamado a la observación interior refuerza el equilibrio que este capítulo busca: no producir más a cualquier costo, sino comprender mejor cómo usamos nuestra mente y nuestro tiempo.</p>
+          </div>
+        </div>
+
+        <!-- Segunda pregunta interactiva -->
+        <div class="reflect-block reveal" data-reflect="2">
+          <p class="reflect-block__label">Reflexión interactiva</p>
+          <h3 class="reflect-block__question">¿Cuál de estas afirmaciones se acerca más a tu idea de un buen uso del tiempo?</h3>
+          <div class="reflect-options" role="group" aria-label="Opciones de reflexión">
+            <button type="button" class="reflect-option" data-response="a">
+              <span class="reflect-option__key">A</span>
+              <span>Completar el mayor número posible de tareas cada día.</span>
+            </button>
+            <button type="button" class="reflect-option" data-response="b">
+              <span class="reflect-option__key">B</span>
+              <span>Equilibrar responsabilidades, descanso y momentos elegidos con intención.</span>
+            </button>
+            <button type="button" class="reflect-option" data-response="c">
+              <span class="reflect-option__key">C</span>
+              <span>Priorizar siempre el ocio, porque la vida es corta.</span>
+            </button>
+          </div>
+          <div class="reflect-feedback" hidden>
+            <p data-for="a">La cantidad de tareas no garantiza calidad de vida ni avance significativo. A veces hacer menos, con más foco, produce mejores resultados.</p>
+            <p data-for="b">Esta postura se alinea con el equilibrio del ensayo: ni productividad extrema ni huida permanente. La clave está en la intención.</p>
+            <p data-for="c">El ocio es valioso, pero si se vuelve la única brújula puede chocar con responsabilidades y metas. El desafío es integrarlo, no absolutizarlo.</p>
+          </div>
+          <p class="reflect-note">Respuesta opcional. El contenido académico no depende de ella.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 06 — CONCLUSIÓN ========== -->
+    <section class="chapter chapter--finale" id="conclusion" data-chapter="6" aria-label="Capítulo 6: El precio del tiempo">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 06</span>
+          <h2 class="chapter-title">El precio del tiempo</h2>
+        </header>
+
+        <div class="prose reveal">
+          <p>A lo largo de esta experiencia se ha sostenido una tesis clara: la sensación de escasez de tiempo no se explica solo por la cantidad de horas disponibles, sino por la forma en que las administramos. Las distracciones digitales fragmentan la atención; la procrastinación convierte el aplazamiento en hábito; la falta de objetivos deja el día a merced de lo inmediato; y las herramientas tecnológicas, lejos de resolver automáticamente el problema, pueden ampliarlo si se usan sin criterio.</p>
+          <p>Al mismo tiempo, el contraargumento nos obliga a matizar. Descansar y disfrutar no son enemigos del buen uso del tiempo. El verdadero costo aparece cuando dejamos de decidir: cuando la atención se entrega por inercia, cuando postergamos lo importante para evitar una emoción, cuando confundimos movimiento con progreso.</p>
+          <p>El precio del tiempo, entonces, no se paga solo en minutos. Se paga en oportunidades no tomadas, en concentraciones rotas, en días que pasan sin dirección. Pero también puede invertirse con inteligencia: priorizando, protegiendo la atención, distinguiendo el descanso del escape y recuperando la pregunta esencial —qué estamos haciendo con las horas que sí tenemos.</p>
+        </div>
+
+        <div class="finale-stage" id="finaleStage">
+          <div class="finale-stage__veil" aria-hidden="true"></div>
+          <blockquote class="finale-quote" id="finaleQuote">
+            <p>Quizás el verdadero problema no sea que tengamos poco tiempo, sino que pocas veces nos detenemos a pensar qué estamos haciendo con él.</p>
+          </blockquote>
+          <p class="finale-epigraph">El tiempo es limitado. Nuestra atención también es una decisión.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAPÍTULO 07 — FUENTES ========== -->
+    <section class="chapter chapter--sources" id="fuentes" data-chapter="7" aria-label="Capítulo 7: Fuentes y referencias">
+      <div class="chapter-inner">
+        <header class="chapter-header">
+          <span class="chapter-number">Capítulo 07</span>
+          <h2 class="chapter-title">Fuentes y referencias</h2>
+          <p class="chapter-lead">Material consultado para respaldar el ensayo. No se inventaron citas textuales ni números de página.</p>
+        </header>
+
+        <div class="sources-block reveal">
+          <h3 class="sources-block__title">Libro principal</h3>
+          <article class="source-card source-card--primary">
+            <p class="source-card__citation">Harari, Y. N. (2018). <cite>21 lecciones para el siglo XXI</cite> (J. Ros, Trad.). Debate.</p>
+            <ul class="source-card__meta">
+              <li><strong>Título original:</strong> <em>21 Lessons for the 21st Century</em></li>
+              <li><strong>Editorial:</strong> Debate (Penguin Random House Grupo Editorial), Madrid</li>
+              <li><strong>Año de la edición en español consultada:</strong> 2018</li>
+              <li><strong>ISBN-13:</strong> 978-84-9992-867-8</li>
+              <li><strong>Uso en este ensayo:</strong> marco intelectual sobre tecnología, trabajo, educación y atención / meditación. Las conexiones se explican con palabras propias; no se presentan interpretaciones personales como citas directas del autor.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="sources-block reveal">
+          <h3 class="sources-block__title">Datos y reportes</h3>
+
+          <article class="source-card">
+            <p class="source-card__citation">Kemp, S. / DataReportal. (2024). <cite>Digital 2024: Deep Dive — The time we spend on social media</cite>. DataReportal (datos de GWI).</p>
+            <p class="source-card__demo"><strong>Qué demuestra:</strong> el usuario típico de redes sociales dedica en promedio 2 horas y 23 minutos diarios a estas plataformas.</p>
+            <p class="source-card__link"><a href="https://datareportal.com/reports/digital-2024-deep-dive-the-time-we-spend-on-social-media" target="_blank" rel="noopener noreferrer">Consultar fuente <i data-lucide="external-link"></i></a></p>
+          </article>
+
+          <article class="source-card">
+            <p class="source-card__citation">Ofcom. (2025). <cite>Online Nation 2025</cite>. Ofcom (con datos de Ipsos iris).</p>
+            <p class="source-card__demo"><strong>Qué demuestra:</strong> entre adultos del Reino Unido, el tiempo promedio online asciende a unas cuatro horas y media diarias; además reporta promedios de uso por plataforma (por ejemplo, YouTube ~51 minutos; Facebook/Messenger ~43; TikTok ~28; Instagram ~20).</p>
+            <p class="source-card__link"><a href="https://www.ofcom.org.uk/research-and-data/online-research/online-nation" target="_blank" rel="noopener noreferrer">Consultar fuente <i data-lucide="external-link"></i></a></p>
+          </article>
+        </div>
+
+        <div class="sources-block reveal">
+          <h3 class="sources-block__title">Psicología de la procrastinación</h3>
+
+          <article class="source-card">
+            <p class="source-card__citation">American Psychological Association. (s. f.). <cite>Procrastination</cite>. APA Dictionary of Psychology.</p>
+            <p class="source-card__demo"><strong>Qué demuestra:</strong> define la procrastinación como retraso voluntario e innecesario de tareas previstas pese a prever consecuencias negativas, y la vincula con la regulación emocional.</p>
+            <p class="source-card__link"><a href="https://dictionary.apa.org/procrastination" target="_blank" rel="noopener noreferrer">Consultar fuente <i data-lucide="external-link"></i></a></p>
+          </article>
+
+          <article class="source-card">
+            <p class="source-card__citation">American Psychological Association. (2022). <cite>Why we procrastinate and what to do about it</cite>, con Fuschia Sirois, PhD. Speaking of Psychology.</p>
+            <p class="source-card__demo"><strong>Qué demuestra:</strong> presenta la procrastinación como problema de regulación emocional (no solo de “pereza”), asociado a estrés, ansiedad y efectos sobre el rendimiento y la salud.</p>
+            <p class="source-card__link"><a href="https://www.apa.org/news/podcasts/speaking-of-psychology/procrastinate" target="_blank" rel="noopener noreferrer">Consultar fuente <i data-lucide="external-link"></i></a></p>
+          </article>
+
+          <article class="source-card">
+            <p class="source-card__citation">Sirois, F. M. (2023). Procrastination and stress: A conceptual review of why context matters. <cite>International Journal of Environmental Research and Public Health, 20</cite>(6), 5031.</p>
+            <p class="source-card__demo"><strong>Qué demuestra:</strong> revisa la evidencia que vincula procrastinación y estrés, y propone comprender mejor el papel del contexto emocional.</p>
+            <p class="source-card__link"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10049005/" target="_blank" rel="noopener noreferrer">Consultar fuente <i data-lucide="external-link"></i></a></p>
+          </article>
+        </div>
+
+        <div class="sources-block reveal">
+          <h3 class="sources-block__title">Créditos visuales</h3>
+          <article class="source-card">
+            <p class="source-card__citation">Fotografías de Unsplash (licencia Unsplash): recursos conceptuales sobre tiempo, tecnología, planificación y descanso. Iconos: Lucide Icons. Personaje pixel art de la mini-experiencia final: recurso propio del autor.</p>
+          </article>
+        </div>
+
+        <div class="closing-note reveal">
+          <p>Esta experiencia fue diseñada para presentar un ensayo argumentativo de grado noveno. Su fortaleza no está solo en la forma, sino en la claridad de la tesis, la solidez de los argumentos y el respeto por las fuentes.</p>
+          <dl class="closing-credits">
+            <div>
+              <dt>Autor</dt>
+              <dd>Nicolás Alexander Cabezas Monroy</dd>
+            </div>
+            <div>
+              <dt>Grado</dt>
+              <dd>9-2</dd>
+            </div>
+            <div>
+              <dt>Profesor</dt>
+              <dd>Layonel Rozo</dd>
+            </div>
+          </dl>
+          <a href="#nucleo" class="btn-nucleo-bridge" id="btnNucleoBridge">
+            <span>Hay algo más al final</span>
+            <i data-lucide="sparkles"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MINI-EXPERIENCIA — EL NÚCLEO DE LA VERDAD ========== -->
+    <section class="nucleo chapter" id="nucleo" data-chapter="8" aria-label="El Núcleo de la Verdad">
+      <div class="nucleo__atmosphere" aria-hidden="true"></div>
+
+      <!-- Paso 1: Transición -->
+      <div class="nucleo-step is-active" data-nucleo-step="intro" role="group" aria-label="Presentación">
+        <div class="nucleo-crystal" aria-hidden="true">
+          <svg class="nucleo-crystal__svg" viewBox="0 0 32 40" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="2" width="4" height="2" fill="#EAE5DA"/>
+            <rect x="12" y="4" width="8" height="2" fill="#B89A62"/>
+            <rect x="10" y="6" width="12" height="2" fill="#D4BC84"/>
+            <rect x="8" y="8" width="16" height="2" fill="#B89A62"/>
+            <rect x="6" y="10" width="20" height="4" fill="#8F7540"/>
+            <rect x="8" y="10" width="4" height="2" fill="#EAE5DA" opacity="0.85"/>
+            <rect x="4" y="14" width="24" height="6" fill="#6E5932"/>
+            <rect x="6" y="14" width="6" height="3" fill="#B89A62"/>
+            <rect x="14" y="15" width="4" height="4" fill="#EAE5DA" opacity="0.7"/>
+            <rect x="6" y="20" width="20" height="4" fill="#8F7540"/>
+            <rect x="8" y="24" width="16" height="4" fill="#B89A62"/>
+            <rect x="10" y="28" width="12" height="3" fill="#D4BC84"/>
+            <rect x="12" y="31" width="8" height="3" fill="#B89A62"/>
+            <rect x="14" y="34" width="4" height="3" fill="#8F7540"/>
+            <rect x="15" y="37" width="2" height="2" fill="#EAE5DA"/>
+          </svg>
+          <span class="nucleo-crystal__glow"></span>
+        </div>
+        <p class="nucleo-kicker">Una sorpresa final</p>
+        <h2 class="nucleo-title">El Núcleo de la Verdad</h2>
+        <p class="nucleo-lead">Has llegado al final de esta reflexión, pero hay algo más que me gustaría compartir contigo...</p>
+        <button type="button" class="nucleo-btn" data-nucleo-next="gate">Continuar</button>
+      </div>
+
+      <!-- Paso 1b: Contraseña misteriosa -->
+      <div class="nucleo-step nucleo-step--veil" data-nucleo-step="gate" hidden role="group" aria-label="Umbral del Núcleo">
+        <div class="nucleo-veil" aria-hidden="true"></div>
+        <div class="nucleo-crystal nucleo-crystal--dim" aria-hidden="true">
+          <svg class="nucleo-crystal__svg" viewBox="0 0 32 40" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="2" width="4" height="2" fill="#EAE5DA"/>
+            <rect x="12" y="4" width="8" height="2" fill="#B89A62"/>
+            <rect x="10" y="6" width="12" height="2" fill="#D4BC84"/>
+            <rect x="8" y="8" width="16" height="2" fill="#B89A62"/>
+            <rect x="6" y="10" width="20" height="4" fill="#8F7540"/>
+            <rect x="14" y="15" width="4" height="4" fill="#EAE5DA" opacity="0.7"/>
+            <rect x="6" y="20" width="20" height="4" fill="#8F7540"/>
+            <rect x="8" y="24" width="16" height="4" fill="#B89A62"/>
+            <rect x="10" y="28" width="12" height="3" fill="#D4BC84"/>
+            <rect x="12" y="31" width="8" height="3" fill="#B89A62"/>
+            <rect x="14" y="34" width="4" height="3" fill="#8F7540"/>
+            <rect x="15" y="37" width="2" height="2" fill="#EAE5DA"/>
+          </svg>
+          <span class="nucleo-crystal__glow nucleo-crystal__glow--soft"></span>
+        </div>
+        <p class="nucleo-kicker nucleo-kicker--whisper">El umbral</p>
+        <h3 class="nucleo-gate-title">Solo quien conoce el nombre<br />puede cruzar.</h3>
+        <p class="nucleo-whisper">
+          No es una llave cualquiera.<br />
+          Es el nombre de aquello que buscas.
+        </p>
+        <form class="nucleo-gate" id="nucleoGateForm" autocomplete="off">
+          <label class="visually-hidden" for="nucleoPassword">Palabra secreta</label>
+          <input
+            type="password"
+            id="nucleoPassword"
+            class="nucleo-gate__input"
+            name="nucleo-password"
+            placeholder="···· ·· ·· ······"
+            required
+            spellcheck="false"
+            autocomplete="off"
+            aria-describedby="nucleoGateHint"
+          />
+          <p class="nucleo-gate__hint" id="nucleoGateHint">Susurra la palabra verdadera.</p>
+          <button type="submit" class="nucleo-btn nucleo-btn--ghost">Revelar</button>
+          <p class="nucleo-gate__error" id="nucleoGateError" hidden role="alert">
+            El silencio responde… esa no es la palabra.
+          </p>
+        </form>
+      </div>
+
+      <!-- Paso 2: Diálogo -->
+      <div class="nucleo-step" data-nucleo-step="dialog" hidden role="group" aria-label="Diálogo">
+        <div class="nucleo-dialog">
+          <figure class="nucleo-dialog__avatar">
+            <img
+              src="assets/images/nucleo-guia.png"
+              alt="Guía en pixel art"
+              width="180"
+              height="144"
+              decoding="async"
+            />
+          </figure>
+          <div class="nucleo-dialog__panel">
+            <p class="nucleo-dialog__name">Guía</p>
+            <p class="nucleo-dialog__text" id="nucleoDialogText" aria-live="polite"></p>
+            <button type="button" class="nucleo-btn nucleo-btn--small" id="nucleoDialogNext" data-nucleo-next="proposal" hidden>
+              Continuar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 3: Propuesta -->
+      <div class="nucleo-step" data-nucleo-step="proposal" hidden role="group" aria-label="Propuesta educativa">
+        <p class="nucleo-kicker">Propuesta educativa</p>
+        <h3 class="nucleo-question">
+          Profesor, ¿ha considerado mi propuesta de desarrollar <span>El Núcleo de la Verdad</span>, una experiencia educativa interactiva para fortalecer el pensamiento crítico y la argumentación?
+        </h3>
+        <div class="nucleo-choices" role="group" aria-label="Opciones de respuesta">
+          <button type="button" class="nucleo-choice" data-nucleo-choice="conocer">
+            Me gustaría conocer más sobre el proyecto.
+          </button>
+          <button type="button" class="nucleo-choice" data-nucleo-choice="conversar">
+            Me gustaría conversar sobre la propuesta.
+          </button>
+        </div>
+        <div class="nucleo-thanks" id="nucleoThanks" hidden>
+          <p id="nucleoThanksText"></p>
+          <button type="button" class="nucleo-btn nucleo-btn--small" data-nucleo-next="finale">
+            Continuar
+          </button>
+        </div>
+      </div>
+
+      <!-- Paso 4: Cierre -->
+      <div class="nucleo-step" data-nucleo-step="finale" hidden role="group" aria-label="Cierre">
+        <div class="nucleo-crystal nucleo-crystal--small" aria-hidden="true">
+          <svg class="nucleo-crystal__svg" viewBox="0 0 32 40" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="2" width="4" height="2" fill="#EAE5DA"/>
+            <rect x="12" y="4" width="8" height="2" fill="#B89A62"/>
+            <rect x="10" y="6" width="12" height="2" fill="#D4BC84"/>
+            <rect x="8" y="8" width="16" height="2" fill="#B89A62"/>
+            <rect x="6" y="10" width="20" height="4" fill="#8F7540"/>
+            <rect x="8" y="10" width="4" height="2" fill="#EAE5DA" opacity="0.85"/>
+            <rect x="4" y="14" width="24" height="6" fill="#6E5932"/>
+            <rect x="14" y="15" width="4" height="4" fill="#EAE5DA" opacity="0.7"/>
+            <rect x="6" y="20" width="20" height="4" fill="#8F7540"/>
+            <rect x="8" y="24" width="16" height="4" fill="#B89A62"/>
+            <rect x="10" y="28" width="12" height="3" fill="#D4BC84"/>
+            <rect x="12" y="31" width="8" height="3" fill="#B89A62"/>
+            <rect x="14" y="34" width="4" height="3" fill="#8F7540"/>
+            <rect x="15" y="37" width="2" height="2" fill="#EAE5DA"/>
+          </svg>
+          <span class="nucleo-crystal__glow"></span>
+        </div>
+        <h2 class="nucleo-title">El Núcleo de la Verdad</h2>
+        <p class="nucleo-lead">Una propuesta para transformar el aprendizaje en una experiencia interactiva.</p>
+        <p class="nucleo-farewell">Gracias por dedicar tiempo a conocer mi propuesta.</p>
+        <a href="#inicio" class="nucleo-btn nucleo-btn--ghost">Volver al ensayo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">El Precio del Tiempo</p>
+      <dl class="footer-meta" aria-label="Créditos del trabajo">
+        <div>
+          <dt>Autor</dt>
+          <dd>Nicolás Alexander Cabezas Monroy</dd>
+        </div>
+        <div>
+          <dt>Grado</dt>
+          <dd>9-2</dd>
+        </div>
+        <div>
+          <dt>Profesor</dt>
+          <dd>Layonel Rozo</dd>
+        </div>
+      </dl>
+      <p class="site-footer__tag">El tiempo es limitado. Nuestra atención también es una decisión.</p>
+      <a href="#inicio" class="btn-top" id="btnTop">
+        <i data-lucide="arrow-up"></i>
+        <span>Volver al inicio</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/animations.js" defer></script>
+  <script src="js/interactions.js" defer></script>
+  <script src="js/nucleo.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
